@@ -22,7 +22,7 @@ Background clips with smooth transitions · the recitation layer keyed on top ·
 <p align="center">
   <a href="https://devgalib.github.io/quran-video-editor/"><img src="docs/images/tutorial.jpg" alt="Watch the 3-minute tutorial with voice-over" width="760"></a><br>
   <sub>A narrated, captioned walk-through: install, choose a recitation, titles, background clips, transitions,
-  text cards, preview and render — <a href="https://devgalib.github.io/quran-video-editor/">watch it in your browser</a> or <a href="docs/tutorial.mp4">download it</a> (2:49, 8 MB)</sub>
+  text cards, preview and render — <a href="https://devgalib.github.io/quran-video-editor/">watch it in your browser</a> or <a href="docs/tutorial.mp4">download it</a> (2:47, 12 MB)</sub>
 </p>
 
 ## Why
