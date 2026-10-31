@@ -6,6 +6,15 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Added
+
+- Narrated video tutorial (`docs/tutorial.mp4`), linked from the README.
+
+### Fixed
+
+- Desktop app: changing *Intro* or *Outro* recursed until Python's recursion limit.
+- Desktop app: leaving the video or clip-folder box without changing it reloaded it and reset the preview time.
+
 ## [0.1.0] - 2026-10-31
 
 ### Added

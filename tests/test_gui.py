@@ -44,6 +44,30 @@ class WindowTest(unittest.TestCase):
         self.assertFalse(win.c_translation.isChecked())
         win.close()
 
+    def test_changing_intro_updates_timeline(self):
+        from qve.gui.window import MainWindow
+
+        win = MainWindow()
+        win.quran_info = {"duration": 20.0, "width": 1920, "height": 1080, "fps": 25.0, "has_audio": True}
+        win.intro.setValue(10)  # used to recurse until RecursionError
+        self.assertEqual(win.time_slider.maximum(), 299)
+        self.assertTrue(win.time_label.text().endswith("0:30"))
+        win.close()
+
+    def test_leaving_the_video_box_keeps_the_preview_time(self):
+        from qve.gui.window import MainWindow
+
+        win = MainWindow()
+        win.quran_edit.setText("/some/video.mp4")
+        win.on_quran_changed()
+        win.quran_info = {"duration": 20.0, "width": 1920, "height": 1080, "fps": 25.0, "has_audio": True}
+        win._update_timeline()
+        win.time_slider.setValue(55)
+        win.on_quran_changed()  # focus left the box without a change
+        self.assertIsNotNone(win.quran_info)
+        self.assertEqual(win.time_slider.value(), 55)
+        win.close()
+
     def test_surah_picker_fills_titles(self):
         from qve.gui.window import MainWindow
 

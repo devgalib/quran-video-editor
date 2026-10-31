@@ -137,6 +137,7 @@ class MainWindow(QMainWindow):
         self._loading = False
         self._preview_gen = 0
         self._want_time = None  # preview time to show once the video length is known
+        self._loaded_paths = {}  # what on_quran_changed / on_bg_changed last loaded
 
         self.preview_timer = QTimer(self, singleShot=True, interval=180)
         self.preview_timer.timeout.connect(self.refresh_preview)
@@ -649,6 +650,10 @@ class MainWindow(QMainWindow):
 
     def on_quran_changed(self):
         path = self.quran_edit.text().strip()
+        # editingFinished also fires when focus just leaves the box; only reload a new path
+        if self._loaded_paths.get("quran") == path:
+            return
+        self._loaded_paths["quran"] = path
         self.quran_info = None
         self.quran_info_label.setText("")
         if path and os.path.isfile(path):
@@ -658,6 +663,9 @@ class MainWindow(QMainWindow):
 
     def on_bg_changed(self):
         folder = self.bg_edit.text().strip()
+        if self._loaded_paths.get("bg") == folder:
+            return
+        self._loaded_paths["bg"] = folder
         self.clips, self.bg_clip = [], None
         self.bg_info.setText("")
         if folder and os.path.isdir(folder):
@@ -696,7 +704,8 @@ class MainWindow(QMainWindow):
 
     def on_time_changed(self, value):
         self.time_label.setText(f"{fmt_time(value / 10)} / {fmt_time(self._total_seconds())}")
-        self.changed()
+        if not self._loading:
+            self.preview_timer.start()
 
     def changed(self, *_):
         if self._loading:

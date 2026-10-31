@@ -17,6 +17,14 @@ Background clips with smooth transitions · the recitation layer keyed on top ·
 
 </div>
 
+## Video tutorial
+
+<p align="center">
+  <a href="docs/tutorial.mp4"><img src="docs/images/tutorial.jpg" alt="Watch the 3-minute tutorial with voice-over" width="760"></a><br>
+  <sub>A narrated, captioned walk-through: install, choose a recitation, titles, background clips, transitions,
+  text cards, preview and render — <a href="docs/tutorial.mp4">watch or download (2:49, 8 MB)</a></sub>
+</p>
+
 ## Why
 
 Recitation videos with a black (or green) background are everywhere. Making them look good usually
