@@ -1,0 +1,29 @@
+{
+  "quran_video": "videos/surah-ar-rahman.mp4",
+  "output": "output/{surah_en} - {reciter}.mp4",
+  "meta": {
+    "surah_ar": "سورة الرحمن",
+    "surah_en": "Surah Ar-Rahman",
+    "surah_meaning": "The Most Merciful",
+    "surah_number": 55,
+    "reciter": "Reciter Name",
+    "channel": "Your Channel"
+  },
+  "intro_seconds": 6,
+  "quran_layer": {"key": "screen"},
+  "backgrounds": {
+    "folder": "clips",
+    "max_clip_seconds": 20,
+    "dim": 0.35,
+    "blur": 0
+  },
+  "transitions": {
+    "duration": 1.0,
+    "types": ["fade", "dissolve", "smoothleft", "circleopen"]
+  },
+  "cards": [
+    {"template": "royal", "start": 0, "duration": 6.5, "options": {"accent": "#E3B85C"}},
+    {"template": "corner", "start": 8, "duration": 7, "animation": "rise"}
+  ],
+  "video": {"width": 1920, "height": 1080, "fps": 30, "encoder": "libx264", "quality": 20, "threads": 4}
+}

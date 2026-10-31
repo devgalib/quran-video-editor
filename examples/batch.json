@@ -1,0 +1,29 @@
+{
+  "defaults": {
+    "output": "output/{surah_en} - {reciter}.mp4",
+    "meta": {"channel": "Your Channel"},
+    "backgrounds": {"folder": "clips", "dim": 0.35},
+    "transitions": {"types": ["fade", "dissolve"]},
+    "intro_seconds": 6,
+    "cards": [
+      {"template": "royal", "start": 0, "duration": 6.5}
+    ]
+  },
+  "jobs": [
+    {
+      "quran_video": "videos/surah-ar-rahman.mp4",
+      "meta": {"surah_ar": "سورة الرحمن", "surah_en": "Surah Ar-Rahman", "surah_number": 55,
+               "reciter": "Reciter One"}
+    },
+    {
+      "quran_video": "videos/surah-al-mulk-no-bismillah.mp4",
+      "meta": {"surah_ar": "سورة الملك", "surah_en": "Surah Al-Mulk", "surah_number": 67,
+               "reciter": "Reciter Two"},
+      "intro_seconds": 12,
+      "cards": [
+        {"template": "royal", "start": 0, "duration": 6},
+        {"template": "bismillah", "start": 6, "duration": 6}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quran-video-editor"
+dynamic = ["version"]
+description = "Lightweight Quran recitation video maker: background clips, smooth transitions, keyed recitation layer and Arabic title cards, rendered with FFmpeg."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE", "qve/fonts/OFL-*.txt"]
+authors = [{ name = "Asadullah Hil Galib" }]
+requires-python = ">=3.10"
+keywords = ["quran", "video", "ffmpeg", "chroma-key", "arabic", "video-editor", "mcp"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: X11 Applications :: Qt",
+    "Environment :: Win32 (MS Windows)",
+    "Intended Audience :: End Users/Desktop",
+    "Natural Language :: Arabic",
+    "Natural Language :: English",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Multimedia :: Video :: Non-Linear Editor",
+]
+dependencies = ["Pillow>=10.0"]
+
+[project.optional-dependencies]
+gui = ["PySide6-Essentials>=6.6"]
+mcp = ["mcp>=2.0"]
+all = ["PySide6-Essentials>=6.6", "mcp>=2.0"]
+dev = ["ruff>=0.6", "pytest>=8"]
+
+[project.scripts]
+qve = "qve.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/devgalib/quran-video-editor"
+Issues = "https://github.com/devgalib/quran-video-editor/issues"
+Changelog = "https://github.com/devgalib/quran-video-editor/blob/main/CHANGELOG.md"
+
+[tool.setuptools.dynamic]
+version = { attr = "qve.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["qve*"]
+
+[tool.setuptools.package-data]
+qve = ["fonts/*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["B905"]  # zip(strict=...) adds noise; lengths are checked where it matters
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

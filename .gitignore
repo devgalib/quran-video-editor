@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Render output and temp files
+output/
+.qve-tmp/
+card-preview/
+*.mp4
+!docs/**/*.mp4
+
+# Local FFmpeg binaries
+bin/
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
