@@ -6,19 +6,11 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
-### Added
-
-- Narrated video tutorial (`docs/tutorial.mp4`), linked from the README.
-
-### Fixed
-
-- Desktop app: changing *Intro* or *Outro* recursed until Python's recursion limit.
-- Desktop app: leaving the video or clip-folder box without changing it reloaded it and reset the preview time.
-
 ## [0.1.0] - 2026-10-31
 
 ### Added
 
+- Narrated video tutorial and a project site: <https://devgalib.github.io/quran-video-editor/>
 - FFmpeg render engine: background clips with 16 transition types, the recitation layer keyed with a
   screen blend (black backgrounds) or chroma key (green screen), text cards with fade and rise
   animation, and the original audio, at 1080p30 H.264.
